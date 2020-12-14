@@ -73,7 +73,7 @@ Created order in
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/shipmentDate
 
     ${xml_response}                 Send xml request        ${xml_request}      ${partner.urls.create_order}
-    Validate response               ${xml_response}         Data/Responses/Delivery/Orders/create_order_response.xsd
+    Validate response               ${xml_response}         Data/Responses/Schemas/Orders/create_order_response.xsd
     Check errors not exist from     ${xml_response}
     Element Text Should Be          ${xml_response}         ${YANDEX_ID}        xpath=response/orderId/yandexId
 
@@ -86,7 +86,7 @@ Created order in
 Order exist in
     [Arguments]                     ${partner}
     ${xml_response}                 Get order from      ${partner}
-    Validate response               ${xml_response}     Data/Responses/Delivery/Orders/get_order_response.xsd
+    Validate response               ${xml_response}     Data/Responses/Schemas/Orders/get_order_response.xsd
     Check errors not exist from     ${xml_response}
     Check partner id in             ${xml_response}     ${PARTNER_ID}   response/order/orderId
     [Return]                        ${xml_response}
@@ -99,14 +99,14 @@ Was cancelled order from
     Set partner id into             ${xml_request}      ${PARTNER_ID}   request/orderId
 
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.cancel_order}
-    Validate response               ${xml_response}     Data/Responses/Delivery/Orders/cancel_order_response.xsd
+    Validate response               ${xml_response}     Data/Responses/Schemas/Orders/cancel_order_response.xsd
     Check errors not exist from     ${xml_response}
 
 
 Order did not exist in
     [Arguments]                     ${partner}
     ${xml_response}                 Get order from      ${partner}
-    Validate response               ${xml_response}     Data/Responses/Delivery/Orders/get_order_response.xsd
+    Validate response               ${xml_response}     Data/Responses/Schemas/Orders/get_order_response.xsd
     Run Keyword And Expect Error    *   Check errors not exist from     ${xml_response}
 
 
@@ -122,7 +122,7 @@ Remove order item from
     Set partner id into             ${xml_request}      ${PARTNER_ID}   request/orderId
 
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.update_order_items}
-    Validate response               ${xml_response}     Data/Responses/Delivery/Orders/update_order_items_response.xsd
+    Validate response               ${xml_response}     Data/Responses/Schemas/Orders/update_order_items_response.xsd
     Check errors not exist from     ${xml_response}
     Check partner id in             ${xml_response}     ${PARTNER_ID}   response/orderId
 

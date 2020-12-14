@@ -15,7 +15,7 @@ class DataTestCase(unittest.TestCase):
         xml_validate("XMLValidateTestData/uniq_and_hash.xml", xsd_path)
 
     def test_validate_request_state(self):
-        xsd_path = "../Data/Responses/Delivery/Data/request_state.xsd"
+        xsd_path = "../Data/Responses/Schemas/Data/request_state.xsd"
         with self.assertRaises(xmlschema.XMLSchemaChildrenValidationError):
             xml_validate("XMLValidateTestData/empty_is_error.xml", xsd_path)
 
@@ -29,11 +29,11 @@ class DataTestCase(unittest.TestCase):
 
 class OrdersTestCase(unittest.TestCase):
     def test_validate_create_order_response(self):
-        xsd_path = "../Data/Responses/Delivery/Orders/create_order_response.xsd"
+        xsd_path = "../Data/Responses/Schemas/Orders/create_order_response.xsd"
         xml_validate("XMLValidateTestData/create_order_response.xml", xsd_path)
 
     def test_validate_get_order_response(self):
-        xsd_path = "../Data/Responses/Delivery/Orders/get_order_response.xsd"
+        xsd_path = "../Data/Responses/Schemas/Orders/get_order_response.xsd"
         xml_validate("XMLValidateTestData/get_order_response.xml", xsd_path)
 
 
