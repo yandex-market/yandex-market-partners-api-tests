@@ -1,0 +1,10 @@
+partner:
+  token: token
+  urls:
+    cancel_order: ${cancel_order_url}
+    create_order: ${create_order_url}
+    get_order: ${get_order_url}
+    get_orders_status: ${get_orders_status_url}
+    update_order_items: ${update_order_items_url}
+
+    put_inbound: ${put_inbound_url}
