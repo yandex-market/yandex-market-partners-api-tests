@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="partnerCode">
+        <xs:all>
+            <xs:element name="partnerId" type="xs:string"/>
+            <xs:element name="partnerCodeValue" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

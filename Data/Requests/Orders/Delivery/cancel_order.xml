@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <uniq>uniq</uniq>
+    <hash>hash</hash>
+    <request type="cancelOrder">
+        <orderId>
+            <yandexId>100</yandexId>
+            <deliveryId>ZKZ123456</deliveryId>
+            <partnerId>ZKZ123456</partnerId>
+        </orderId>
+    </request>
+</root>

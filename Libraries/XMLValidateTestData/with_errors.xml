@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requestState>
+    <isError>true</isError>
+    <errors>
+        <error>first</error>
+        <error>second</error>
+    </errors>
+</requestState>

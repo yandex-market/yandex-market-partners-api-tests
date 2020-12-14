@@ -1,0 +1,13 @@
+#IDE
+.idea
+
+#Python
+venv
+
+#Robot
+log.html
+output.xml
+report.html
+
+#Config
+Configs/partner_config.yml

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="korobyte">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="width" type="xs:int"/>
+                <xs:element name="height" type="xs:int"/>
+                <xs:element name="length" type="xs:int"/>
+                <xs:element name="weightGross" type="xs:int"/>
+                <xs:element name="weightNet" type="xs:float" minOccurs="0"/>
+                <xs:element name="weightTare" type="xs:float" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

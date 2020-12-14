@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <uniq>uniq</uniq>
+    <hash>hash</hash>
+    <request type="getOrdersStatus">
+        <ordersId>
+            <orderId>
+                <yandexId>yandexId</yandexId>
+                <deliveryId>deliveryId</deliveryId>
+                <partnerId>partnerId</partnerId>
+            </orderId>
+        </ordersId>
+    </request>
+</root>
