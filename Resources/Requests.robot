@@ -29,9 +29,14 @@ Send xml request
 
 
 Check errors not exist from
-    [Arguments]             ${xml_response}
-    ${error}                Element To String   ${xml_response}     xpath=requestState
-    Element Text Should Be  ${xml_response}     false               xpath=requestState/isError       message=${error}
+    [Arguments]                 ${xml_response}
+    ${error}                    Element To String           ${xml_response}     xpath=requestState
+                                Element should not exist    ${xml_response}     xpath=requestState/errorCodes
+    ${count}                    Get element count           ${xml_response}
+
+    Run Keyword If              ${count}==0
+    ...                         Element Text Should Be      ${xml_response}     false       xpath=requestState/isError
+    ...                         message=${error}
 
 
 Set request id to

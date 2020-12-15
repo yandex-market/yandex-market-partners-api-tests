@@ -2,19 +2,28 @@
 Library     XML
 Library     RequestsLibrary
 Library     String
-Library     XMLValidate
 
-Resource    ../Requests.robot
+Resource    ../Validation.robot
+Resource    ../Times.robot
 Resource    Helpers.robot
 
 
 *** Keywords ***
 Put inbound into
     [Arguments]                     ${partner}
+    ${YANDEX_ID}                    Generate Random String  7  [NUMBERS]
+    ${interval}                     Create interval         NOW + 1day          NOW + 2day
 
     ${xml_request}                  Parse xml               Data/Requests/Movement/put_inbound.xml
+    Set Element Text                ${xml_request}          ${YANDEX_ID}        xpath=request/inbound/inboundId/yandexId
+    Set Element Text                ${xml_request}          ${interval}         xpath=request/inbound/interval
+    ${NEW_INBOUND}                  Get Element             ${xml_request}      xpath=request/inbound
 
     ${xml_response}                 Send movement request   ${xml_request}      ${partner.urls.put_inbound}
-#    Validate response               ${xml_response}         Common/Responses/Schemas/Delivery/create_order_response.xsd
+    Validate response               ${xml_response}         Data/Responses/Schemas/Movement/put_inbound_response.xsd
     Check errors not exist from     ${xml_response}
-    Element Text Should Be          ${xml_response}         ${YANDEX_ID}        xpath=response/orderId/yandexId
+
+    ${PARTNER_ID}                   Get Element Text        ${xml_response}     xpath=response/inboundId/partnerId
+    Set Test Variable               ${YANDEX_ID}
+    Set Test Variable               ${PARTNER_ID}
+    Set Test Variable               ${NEW_INBOUND}
