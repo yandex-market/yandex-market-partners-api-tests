@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <uniq>5d09ae7be5e04fbfb43dc0582d1f8d48</uniq>
+    <response type="putInbound">
+        <inboundId>
+            <partnerId>inbound_partner_id</partnerId>
+        </inboundId>
+    </response>
+    <requestState/>
+</root>

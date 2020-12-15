@@ -10,4 +10,5 @@ output.xml
 report.html
 
 #Config
-Configs/partner_config.yml
+Configs
+!Configs/partner_config_example.yml

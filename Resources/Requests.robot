@@ -7,7 +7,6 @@ Library     Request
 Send xml request
     [Arguments]         ${xml_request}          ${url}
 
-    ${request_id}       Set request id to       ${xml_request}
     Set Element Text    ${xml_request}          ${partner.token}    xpath=token
 
     &{headers}          Create Dictionary       Content-Type=text/xml
@@ -26,8 +25,6 @@ Send xml request
     ${response_type}    Get Element Attribute   ${xml_response}     type            xpath=response
     Should Be Equal As Strings  ${request_type}  ${response_type}   The request type is not equal to the response type
 
-    Check response id from      ${xml_response}  ${request_id}
-
     [Return]            ${xml_response}
 
 
@@ -40,9 +37,26 @@ Check errors not exist from
 Set request id to
     [Arguments]             ${xml_request}
     ${uniq}                 generate unique
-    Set Element Text        ${xml_request}          ${uniq}         xpath=uniq
-    Set Element Text        ${xml_request}          ${uniq}         xpath=hash
+    Set uniq to request     ${xml_request}          ${uniq}
+    Set hash to request     ${xml_request}          ${uniq}
     [Return]                ${uniq}
+
+
+Set only uniq to
+    [Arguments]             ${xml_request}
+    ${uniq}                 generate unique
+    Set uniq to request     ${xml_request}          ${uniq}
+    [Return]                ${uniq}
+
+
+Set uniq to request
+    [Arguments]             ${xml_request}          ${uniq}
+    Set Element Text        ${xml_request}          ${uniq}         xpath=uniq
+
+
+Set hash to request
+    [Arguments]             ${xml_request}          ${hash}
+    Set Element Text        ${xml_request}          ${hash}         xpath=hash
 
 
 Check response id from
@@ -54,13 +68,12 @@ Check response id from
 
 
 Check uniq from response
-    [Arguments]             ${xml_response}         ${request_uniq}
-    ${response_uniq}        Get Element Text        ${xml_response}     xpath=uniq
-    Should Be Equal As Strings  ${request_uniq}  ${response_uniq}   The request uniq is not equal to the response uniq
+    [Arguments]                 ${xml_response}     ${request_uniq}
+    ${response_uniq}            Get Element Text    ${xml_response}     xpath=uniq
+    Should Be Equal As Strings  ${request_uniq}     ${response_uniq}   The request uniq is not equal to the response uniq
 
 
 Check hash from response
     [Arguments]             ${xml_response}         ${request_hash}
     ${response_hash}        Get Element Text        ${xml_response}     xpath=hash
-    Should Be Equal As Strings  ${request_hash}  ${response_hash}   The request hash is not equal to the response hash
-
+    Should Be Equal As Strings  ${request_hash}     ${response_hash}   The request hash is not equal to the response hash

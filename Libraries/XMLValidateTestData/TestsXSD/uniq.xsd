@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../../../Data/Responses/Schemas/Data/uniq.xsd"/>
+    <xs:include schemaLocation="../../../Data/Responses/Schemas/Common/uniq.xsd"/>
     <xs:element name="root">
         <xs:complexType>
             <xs:group ref="uniq"/>
