@@ -1,6 +1,5 @@
 *** Settings ***
 Library     XML
-Library     RequestsLibrary
 Library     String
 
 Resource    ../Validation.robot
