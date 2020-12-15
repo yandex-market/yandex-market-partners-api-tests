@@ -29,31 +29,7 @@ Check partner id in
     ...             ELSE                Element Text Should Be      ${xml_response}     ${id}   xpath=${xpath}/partnerId
 
 
-Check order status in
-    [Arguments]                     ${partner}          ${status}       ${message}
-    ${xml_request}                  Parse xml           Data/Requests/Delivery/get_orders_status.xml
-    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/ordersId/orderId/yandexId
-    Set partner id into             ${xml_request}      ${PARTNER_ID}   request/ordersId/orderId
-
-    ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_orders_status}
-    Check errors not exist from     ${xml_response}
-    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/orderStatusHistories/orderStatusHistory/orderId
-
-    Element Text Should Be          ${xml_response}     ${status}       message=${message}
-    ...                             xpath=response/orderStatusHistories/orderStatusHistory/history/orderStatus/statusCode
-
-
-Get order from
-    [Arguments]                     ${partner}
-    ${xml_request}                  Parse xml           Data/Requests/Delivery/get_order.xml
-    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/orderId/yandexId
-    Set partner id into             ${xml_request}      ${PARTNER_ID}   request/orderId
-
-    ${xml_response}                 Send order request  ${xml_request}  ${partner.urls.get_order}
-    [Return]                        ${xml_response}
-
-
-Send order request
+Send delivery request
     [Arguments]             ${xml_request}          ${url}
     ${request_id}           Set request id to       ${xml_request}
     ${xml_response}         Send xml request        ${xml_request}  ${url}

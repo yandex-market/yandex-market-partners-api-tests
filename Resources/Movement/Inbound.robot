@@ -26,3 +26,23 @@ Put inbound into
     Set Test Variable               ${YANDEX_ID}
     Set Test Variable               ${PARTNER_ID}
     Set Test Variable               ${NEW_INBOUND}
+
+
+Inbound Exist in
+    [Arguments]                     ${partner}
+    ${xml_response}                 Get inbound from    ${partner}
+    Validate response               ${xml_response}     Data/Responses/Schemas/Movement/get_order_response.xsd
+    Check errors not exist from     ${xml_response}
+    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/order/orderId
+    [Return]                        ${xml_response}
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+Get inbound from
+    [Arguments]             ${partner}
+    ${xml_request}          Parse xml               Data/Requests/Movement/get_inbound.xml
+    Set Element Text        ${xml_request}          ${YANDEX_ID}    xpath=request/inboundId/yandexId
+    Set Element Text        ${xml_request}          ${PARTNER_ID}   xpath=request/inboundId/partnerId
+
+    ${xml_response}         Send movement request   ${xml_request}  ${partner.urls.get_inbound}
+    [Return]                ${xml_response}

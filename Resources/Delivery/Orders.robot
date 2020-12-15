@@ -18,7 +18,7 @@ Created order in
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/deliveryDate
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/shipmentDate
 
-    ${xml_response}                 Send order request      ${xml_request}      ${partner.urls.create_order}
+    ${xml_response}                 Send delivery request   ${xml_request}      ${partner.urls.create_order}
     Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/create_order_response.xsd
     Check errors not exist from     ${xml_response}
     Element Text Should Be          ${xml_response}         ${YANDEX_ID}        xpath=response/orderId/yandexId
@@ -40,12 +40,12 @@ Order exist in
 
 Was cancelled order from
     [Arguments]                     ${partner}
-    ${xml_request}                  Parse xml           Data/Requests/Delivery/cancel_order.xml
-    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/orderId/yandexId
-    Set partner id into             ${xml_request}      ${PARTNER_ID}   request/orderId
+    ${xml_request}                  Parse xml               Data/Requests/Delivery/cancel_order.xml
+    Set Element Text                ${xml_request}          ${YANDEX_ID}    xpath=request/orderId/yandexId
+    Set partner id into             ${xml_request}          ${PARTNER_ID}   request/orderId
 
-    ${xml_response}                 Send order request  ${xml_request}  ${partner.urls.cancel_order}
-    Validate response               ${xml_response}     Data/Responses/Schemas/Delivery/cancel_order_response.xsd
+    ${xml_response}                 Send delivery request   ${xml_request}  ${partner.urls.cancel_order}
+    Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/cancel_order_response.xsd
     Check errors not exist from     ${xml_response}
 
 
@@ -63,14 +63,14 @@ Order status is canceled in
 
 Remove order item from
     [Arguments]                     ${partner}
-    ${xml_request}                  Parse xml           Data/Requests/Delivery/update_order_items.xml
-    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/orderId/yandexId
-    Set partner id into             ${xml_request}      ${PARTNER_ID}   request/orderId
+    ${xml_request}                  Parse xml               Data/Requests/Delivery/update_order_items.xml
+    Set Element Text                ${xml_request}          ${YANDEX_ID}    xpath=request/orderId/yandexId
+    Set partner id into             ${xml_request}          ${PARTNER_ID}   request/orderId
 
-    ${xml_response}                 Send order request  ${xml_request}  ${partner.urls.update_order_items}
-    Validate response               ${xml_response}     Data/Responses/Schemas/Delivery/update_order_items_response.xsd
+    ${xml_response}                 Send delivery request   ${xml_request}  ${partner.urls.update_order_items}
+    Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/update_order_items_response.xsd
     Check errors not exist from     ${xml_response}
-    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/orderId
+    Check partner id in             ${xml_response}         ${PARTNER_ID}   response/orderId
 
 
 Order item was removed from
@@ -79,3 +79,28 @@ Order item was removed from
     ${begin_items_count}            Get Element Count   ${NEW_ORDER}        xpath=items/item
     ${end_items_count}              Get Element Count   ${xml_response}     xpath=response/order/items/item
     Should Be True                  ${${begin_items_count}-1} == ${end_items_count}
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+Get order from
+    [Arguments]                     ${partner}
+    ${xml_request}                  Parse xml               Data/Requests/Delivery/get_order.xml
+    Set Element Text                ${xml_request}          ${YANDEX_ID}    xpath=request/orderId/yandexId
+    Set partner id into             ${xml_request}          ${PARTNER_ID}   request/orderId
+
+    ${xml_response}                 Send delivery request   ${xml_request}  ${partner.urls.get_order}
+    [Return]                        ${xml_response}
+
+
+Check order status in
+    [Arguments]                     ${partner}          ${status}       ${message}
+    ${xml_request}                  Parse xml           Data/Requests/Delivery/get_orders_status.xml
+    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/ordersId/orderId/yandexId
+    Set partner id into             ${xml_request}      ${PARTNER_ID}   request/ordersId/orderId
+
+    ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_orders_status}
+    Check errors not exist from     ${xml_response}
+    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/orderStatusHistories/orderStatusHistory/orderId
+
+    Element Text Should Be          ${xml_response}     ${status}       message=${message}
+    ...                             xpath=response/orderStatusHistories/orderStatusHistory/history/orderStatus/statusCode

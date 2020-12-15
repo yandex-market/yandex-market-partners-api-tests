@@ -10,4 +10,5 @@ Test Teardown  Delete All Sessions
 
 *** Test Cases ***
 Create inbound
-    Given Put inbound into  ${partner}
+    When Put inbound into  ${partner}
+    Then Inbound Exist in  ${partner}

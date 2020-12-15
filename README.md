@@ -20,7 +20,8 @@
    * getOrdersStatus - https://yandex.ru/dev/market/delivery-service/doc/dg/reference/get-orders-status.html
    * updateOrderItems - https://yandex.ru/dev/market/delivery-service/doc/dg/reference/update-order-items.html
 2. Movement
-    * putInbound - https://yandex.ru/dev/market/movement-control/doc/dg/reference/put-inbound.html
+   * putInbound - https://yandex.ru/dev/market/movement-control/doc/dg/reference/put-inbound.html
+   * getInbound - https://yandex.ru/dev/market/movement-control/doc/dg/reference/get-inbound.html
     
 
 **Валидация**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <uniq>uniq</uniq>
+    <request type="getInbound">
+        <inboundId>
+            <yandexId>yandexId</yandexId>
+            <partnerId>partnerId</partnerId>
+        </inboundId>
+    </request>
+</root>
