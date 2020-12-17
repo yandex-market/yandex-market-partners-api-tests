@@ -19,7 +19,7 @@ Created order in
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/shipmentDate
 
     ${xml_response}                 Send delivery request   ${xml_request}      ${partner.urls.create_order}
-    Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/create_order_response.xsd
+    Validate response               ${xml_response}         Data/Schemas/Responses/Delivery/create_order_response.xsd
     Check errors not exist from     ${xml_response}
     Element Text Should Be          ${xml_response}         ${YANDEX_ID}        xpath=response/orderId/yandexId
 
@@ -32,7 +32,7 @@ Created order in
 Order exist in
     [Arguments]                     ${partner}
     ${xml_response}                 Get order from      ${partner}
-    Validate response               ${xml_response}     Data/Responses/Schemas/Delivery/get_order_response.xsd
+    Validate response               ${xml_response}     Data/Schemas/Responses/Delivery/get_order_response.xsd
     Check errors not exist from     ${xml_response}
     Check partner id in             ${xml_response}     ${PARTNER_ID}   response/order/orderId
     [Return]                        ${xml_response}
@@ -45,7 +45,7 @@ Was cancelled order from
     Set partner id into             ${xml_request}          ${PARTNER_ID}   request/orderId
 
     ${xml_response}                 Send delivery request   ${xml_request}  ${partner.urls.cancel_order}
-    Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/cancel_order_response.xsd
+    Validate response               ${xml_response}         Data/Schemas/Responses/Delivery/cancel_order_response.xsd
     Check errors not exist from     ${xml_response}
 
 
