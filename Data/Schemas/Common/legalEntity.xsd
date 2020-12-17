@@ -3,8 +3,8 @@
     <xs:include schemaLocation="address.xsd"/>
     <xs:complexType name="legalEntity">
         <xs:all>
-            <xs:element name="legalName" type="xs:string" minOccurs="0"/>
             <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="legalName" type="xs:string" minOccurs="0"/>
             <xs:element name="legalForm" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -17,10 +17,10 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="address" type="address" minOccurs="0"/>
             <xs:element name="ogrn" type="xs:string" minOccurs="0"/>
             <xs:element name="inn" type="xs:string" minOccurs="0"/>
             <xs:element name="kpp" type="xs:string" minOccurs="0"/>
+            <xs:element name="address" type="address" minOccurs="0"/>
             <xs:element name="account" type="xs:string" minOccurs="0"/>
             <xs:element name="bank" type="xs:string" minOccurs="0"/>
             <xs:element name="bik" type="xs:string" minOccurs="0"/>

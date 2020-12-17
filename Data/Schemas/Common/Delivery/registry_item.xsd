@@ -5,7 +5,6 @@
     <xs:include schemaLocation="service.xsd"/>
     <xs:include schemaLocation="../barcode.xsd"/>
     <xs:include schemaLocation="tax.xsd"/>
-    <xs:include schemaLocation="../../Movement/contractor.xsd"/>
     <xs:include schemaLocation="../remaining_lifetimes.xsd"/>
     <xs:include schemaLocation="transit_data.xsd"/>
     <xs:include schemaLocation="supplier.xsd"/>

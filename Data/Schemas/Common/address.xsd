@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../Common/Delivery/location.xsd"/>
+    <xs:include schemaLocation="location.xsd"/>
     <xs:complexType name="address">
         <xs:all>
             <xs:element name="combinedAddress" type="xs:string"/>

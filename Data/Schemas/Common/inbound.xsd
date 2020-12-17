@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../Common/resource_id.xsd"/>
+    <xs:include schemaLocation="resource_id.xsd"/>
     <xs:include schemaLocation="logistic_point.xsd"/>
     <xs:include schemaLocation="courier.xsd"/>
     <xs:complexType name="inbound">
