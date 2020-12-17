@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <uniq>uniq</uniq>
+    <hash>hash</hash>
+    <response type="cancelOrder"/>
+    <requestState>
+        <isError>false</isError>
+    </requestState>
+</root>

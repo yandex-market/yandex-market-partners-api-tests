@@ -23,6 +23,10 @@ class OrdersTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Delivery/create_order_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/create_order_response.xml", xsd_path)
 
+    def test_validate_cancel_order_response(self):
+        xsd_path = "../Data/Schemas/Responses/Delivery/cancel_order_response.xsd"
+        xml_validate("XMLValidateTestData/Delivery/cancel_order_response.xml", xsd_path)
+
     def test_validate_get_order_response(self):
         xsd_path = "../Data/Schemas/Responses/Delivery/get_order_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/get_order_response.xml", xsd_path)

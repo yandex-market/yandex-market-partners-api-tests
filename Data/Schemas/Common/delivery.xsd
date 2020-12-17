@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="phone.xsd"/>
     <xs:include schemaLocation="doc_template.xsd"/>
-    <xs:include schemaLocation="../Delivery/resource_id.xsd"/>
+    <xs:include schemaLocation="Delivery/resource_id.xsd"/>
     <xs:include schemaLocation="work_time.xsd"/>
     <xs:element name="delivery">
         <xs:complexType>

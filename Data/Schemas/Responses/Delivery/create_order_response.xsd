@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="../../Common/request_state.xsd"/>
-    <xs:include schemaLocation="../../Delivery/resource_id.xsd"/>
+    <xs:include schemaLocation="../../Common/Delivery/resource_id.xsd"/>
     <xs:element name="root">
         <xs:complexType>
             <xs:sequence>
@@ -10,9 +10,10 @@
                 <xs:element ref="requestState"/>
                 <xs:element name="response">
                     <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="orderId" type="resourceId"/>
-                        </xs:sequence>
+                        <xs:all>
+                            <xs:element name="orderId" type="resourceId" minOccurs="0"/>
+                            <xs:element name="shipmentId" type="resourceId" minOccurs="0"/>
+                        </xs:all>
                         <xs:attribute name="type" type="xs:string" fixed="createOrder" use="required"/>
                     </xs:complexType>
                 </xs:element>
