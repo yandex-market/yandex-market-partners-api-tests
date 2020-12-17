@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../Common/Delivery/resource_id.xsd"/>
-    <xs:include schemaLocation="../Common/location.xsd"/>
-    <xs:include schemaLocation="../Common/work_time.xsd"/>
-    <xs:include schemaLocation="../Common/person.xsd"/>
-    <xs:include schemaLocation="../Common/phone.xsd"/>
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="location.xsd"/>
+    <xs:include schemaLocation="work_time.xsd"/>
+    <xs:include schemaLocation="person.xsd"/>
+    <xs:include schemaLocation="phone.xsd"/>
     <xs:complexType name="warehouse">
         <xs:all>
             <xs:element name="id" type="resourceId"/>
             <xs:element name="address" type="location"/>
+            <xs:element name="instruction" type="xs:string" minOccurs="0"/>
             <xs:element name="schedule">
                 <xs:complexType>
                     <xs:sequence>
@@ -16,7 +17,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="incorporation" type="xs:string" minOccurs="0"/>
             <xs:element name="contact" type="person" minOccurs="0"/>
             <xs:element name="phones" minOccurs="0">
                 <xs:complexType>
@@ -25,8 +25,6 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="instruction" type="xs:string" minOccurs="0"/>
-            <xs:element name="resourceId" type="resourceId" minOccurs="0"/>
         </xs:all>
     </xs:complexType>
 </xs:schema>

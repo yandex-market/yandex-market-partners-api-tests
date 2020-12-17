@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="../../Common/request_state.xsd"/>
-    <xs:include schemaLocation="../../Delivery/order.xsd"/>
+    <xs:include schemaLocation="../../Common/Delivery/order.xsd"/>
     <xs:element name="root">
         <xs:complexType>
             <xs:all>
@@ -11,7 +11,7 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element ref="order"/>
+                            <xs:element name="order" type="order"/>
                         </xs:sequence>
                         <xs:attribute name="type" type="xs:string" fixed="getOrder" use="required"/>
                     </xs:complexType>

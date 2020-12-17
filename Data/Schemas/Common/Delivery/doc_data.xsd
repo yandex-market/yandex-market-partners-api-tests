@@ -5,7 +5,7 @@
         <xs:all>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="version" type="xs:int"/>
-            <xs:element name="data" minOccurs="1">
+            <xs:element name="data" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element ref="param" maxOccurs="unbounded"/>

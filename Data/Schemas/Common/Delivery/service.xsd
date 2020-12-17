@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="tax.xsd"/>
     <xs:complexType name="service">
         <xs:all>
             <xs:element name="code">
@@ -21,6 +22,14 @@
             <xs:element name="isOptional" type="xs:boolean"/>
             <xs:element name="name" type="xs:string" minOccurs="0"/>
             <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="cost" type="xs:double" minOccurs="0"/>
+            <xs:element name="taxes" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tax" type="tax" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:all>
     </xs:complexType>
 </xs:schema>

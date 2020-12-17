@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="../unit_info.xsd"/>
-    <xs:include schemaLocation="../cargo_type.xsd"/>
-    <xs:include schemaLocation="../service.xsd"/>
+    <xs:include schemaLocation="cargo_type.xsd"/>
+    <xs:include schemaLocation="service.xsd"/>
     <xs:include schemaLocation="../barcode.xsd"/>
-    <xs:include schemaLocation="../../Movement/tax.xsd"/>
+    <xs:include schemaLocation="tax.xsd"/>
     <xs:include schemaLocation="../../Movement/contractor.xsd"/>
     <xs:include schemaLocation="../remaining_lifetimes.xsd"/>
     <xs:include schemaLocation="transit_data.xsd"/>
     <xs:include schemaLocation="supplier.xsd"/>
+    <xs:include schemaLocation="instances.xsd"/>
     <xs:complexType name="registryItem">
         <xs:all>
             <xs:element name="unitInfo" type="unitInfo"/>
@@ -33,19 +34,7 @@
             <xs:element name="nameEnglish" type="xs:string" minOccurs="0"/>
             <xs:element name="itemDescriptionEnglish" type="xs:string" minOccurs="0"/>
             <xs:element name="transitData" type="transitData" minOccurs="0"/>
-            <xs:element name="instances" minOccurs="0">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="instance" maxOccurs="unbounded">
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="instanceKey" type="xs:string"/>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="instances" type="instances" minOccurs="0"/>
             <xs:element name="supplier" type="supplier" minOccurs="0"/>
         </xs:all>
     </xs:complexType>

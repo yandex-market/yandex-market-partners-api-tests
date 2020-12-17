@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="../Common/resource_id.xsd"/>
-    <xs:include schemaLocation="../Common/location.xsd"/>
+    <xs:include schemaLocation="../Common/Delivery/location.xsd"/>
     <xs:complexType name="logisticPoint">
         <xs:all>
             <xs:element name="logisticPointId" type="resourceId"/>

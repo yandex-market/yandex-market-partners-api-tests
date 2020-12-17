@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../Common/Delivery/resource_id.xsd"/>
-    <xs:include schemaLocation="../Common/korobyte.xsd"/>
-    <xs:include schemaLocation="../Common/partner_code.xsd"/>
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="korobyte.xsd"/>
+    <xs:include schemaLocation="partner_code.xsd"/>
     <xs:include schemaLocation="item_place.xsd"/>
     <xs:complexType name="place">
         <xs:all>
-            <xs:element name="placeId" type="resourceId"/>
+            <xs:element name="resourceId" type="resourceId"/>
             <xs:element name="korobyte" type="korobyte" minOccurs="0"/>
             <xs:element name="partnerCodes" minOccurs="0">
                 <xs:complexType>

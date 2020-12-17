@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="location.xsd"/>
+    <xs:include schemaLocation="item.xsd"/>
+    <xs:include schemaLocation="korobyte.xsd"/>
+    <xs:include schemaLocation="doc_data.xsd"/>
+    <xs:include schemaLocation="warehouse.xsd"/>
+    <xs:include schemaLocation="recipient.xsd"/>
+    <xs:include schemaLocation="place.xsd"/>
+    <xs:include schemaLocation="sender.xsd"/>
+    <xs:include schemaLocation="cargo_type.xsd"/>
+    <xs:include schemaLocation="service.xsd"/>
+    <xs:complexType name="order">
+        <xs:all>
+            <xs:element name="orderId" type="resourceId"/>
+            <xs:element name="parcelId" type="resourceId" minOccurs="0"/>
+            <xs:element name="locationTo" type="location"/>
+            <xs:element name="locationFrom" type="location" minOccurs="0"/>
+            <xs:element name="korobyte" type="korobyte"/>
+            <xs:element name="cargoType" type="cargoType" minOccurs="0"/>
+            <xs:element name="items">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="item" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!-- deprecated -->
+            <xs:element name="cargoCost" type="xs:float" minOccurs="0"/>
+            <xs:element name="tariff" type="xs:string"/>
+            <xs:element name="shipmentDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="assessedCost" type="xs:float"/>
+            <xs:element name="paymentMethod">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="deliveryType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="deliveryCost" type="xs:float"/>
+            <xs:element name="documentData" type="docData" minOccurs="0"/>
+            <xs:element name="recipient" type="recipient"/>
+            <xs:element name="total" type="xs:float"/>
+            <xs:element name="amountPrepaid" type="xs:float" minOccurs="0"/>
+            <xs:element name="sender" type="sender"/>
+            <xs:element name="pickupPointCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="pickupPointId" type="resourceId" minOccurs="0"/>
+            <xs:element name="deliveryDate" type="xs:dateTime" minOccurs="0"/>
+            <!-- deprecated -->
+            <xs:element name="deliveryTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="deliveryInterval" type="xs:string" minOccurs="0"/>
+            <xs:element name="services" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="service" type="service"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="comment" type="xs:string" minOccurs="0"/>
+            <xs:element name="warehouse" type="warehouse"/>
+            <xs:element name="shipmentPointCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="places" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Place" type="place"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="cashService" type="xs:float" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
