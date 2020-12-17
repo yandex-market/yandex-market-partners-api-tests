@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="unit_id.xsd"/>
+    <xs:include schemaLocation="../Common/service.xsd"/>
+    <xs:include schemaLocation="../Common/barcode.xsd"/>
+    <xs:include schemaLocation="../Common/korobyte.xsd"/>
+    <xs:include schemaLocation="tax.xsd"/>
+    <xs:include schemaLocation="../Common/contract.xsd"/>
+    <xs:include schemaLocation="../Common/remaining_lifetimes.xsd"/>
+    <xs:element name="item">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="count" type="xs:int"/>
+                <xs:element name="price" type="xs:float"/>
+                <xs:element name="cargoType" type="xs:int" minOccurs="0"/>
+                <xs:element ref="unitId" minOccurs="0"/>
+                <xs:element name="vendorCodes" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="vendorCodes" type="xs:string" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="inboundServices" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="inboundService" type="service" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="untaxedPrice" type="xs:float" minOccurs="0"/>
+                <xs:element name="barcodes" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="barcode" type="barcode" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="description" type="xs:string" minOccurs="0"/>
+                <xs:element name="korobyte" type="korobyte" minOccurs="0"/>
+                <xs:element name="hasLifeTime" type="xs:boolean" minOccurs="0"/>
+                <xs:element name="lifeTime" type="xs:int" minOccurs="0"/>
+                <xs:element name="boxCapacity" type="xs:int" minOccurs="0"/>
+                <xs:element name="boxCount" type="xs:int" minOccurs="0"/>
+                <xs:element name="comment" type="xs:string" minOccurs="0"/>
+                <xs:element name="tax" type="tax" minOccurs="0"/>
+                <xs:element ref="contract" minOccurs="0"/>
+                <xs:element name="article" type="xs:string" minOccurs="0"/>
+                <xs:element name="remainingLifetimes" type="remainingLifetimes" minOccurs="0"/>
+                <xs:element name="update" type="xs:string" minOccurs="0"/>
+                <xs:element name="categoryId" type="xs:int" minOccurs="0"/>
+                <xs:element name="intances" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="intances">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="cis" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="unitOperationType" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="CROSSDOCK"/>
+                            <xs:enumeration value="FULFILLMENT"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="undefinedCount" type="xs:int" minOccurs="0"/>
+                <xs:element name="removableIfAbsent" type="xs:boolean" minOccurs="0"/>
+                <xs:element name="urls" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="url" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- not from docs -->
+                <xs:element name="taxes" type="xs:all" nillable="true" minOccurs="0"/>
+                <xs:element name="supplier" type="xs:all" nillable="true" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

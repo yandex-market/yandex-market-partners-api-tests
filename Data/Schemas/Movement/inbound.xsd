@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../Common/resource_id.xsd"/>
+    <xs:include schemaLocation="logistic_point.xsd"/>
+    <xs:include schemaLocation="courier.xsd"/>
+    <xs:complexType name="inbound">
+        <xs:all>
+            <xs:element name="inboundId" type="resourceId"/>
+            <xs:element name="inboundType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="interval" type="xs:string"/>
+            <xs:element name="logisticPoint" type="logisticPoint" minOccurs="0"/>
+            <xs:element name="comment" type="xs:string" minOccurs="0"/>
+            <xs:element name="courier" type="courier" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

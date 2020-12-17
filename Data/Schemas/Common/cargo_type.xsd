@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="cargoType">
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="20"/>
+            <xs:enumeration value="40"/>
+            <xs:enumeration value="50"/>
+            <xs:enumeration value="80"/>
+            <xs:enumeration value="100"/>
+            <xs:enumeration value="150"/>
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="220"/>
+            <xs:enumeration value="230"/>
+            <xs:enumeration value="300"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="320"/>
+            <xs:enumeration value="400"/>
+            <xs:enumeration value="420"/>
+            <xs:enumeration value="440"/>
+            <xs:enumeration value="450"/>
+            <xs:enumeration value="470"/>
+            <xs:enumeration value="480"/>
+            <xs:enumeration value="490"/>
+            <xs:enumeration value="500"/>
+            <xs:enumeration value="510"/>
+            <xs:enumeration value="520"/>
+            <xs:enumeration value="700"/>
+            <xs:enumeration value="710"/>
+            <xs:enumeration value="720"/>
+            <xs:enumeration value="750"/>
+            <xs:enumeration value="800"/>
+            <xs:enumeration value="900"/>
+            <xs:enumeration value="910"/>
+            <xs:enumeration value="950"/>
+            <xs:enumeration value="955"/>
+            <xs:enumeration value="960"/>
+            <xs:enumeration value="970"/>
+            <xs:enumeration value="980"/>
+            <xs:enumeration value="985"/>
+            <xs:enumeration value="990"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

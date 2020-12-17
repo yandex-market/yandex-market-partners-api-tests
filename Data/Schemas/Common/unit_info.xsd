@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="unit_count.xsd"/>
+    <xs:include schemaLocation="composite_id.xsd"/>
+    <xs:include schemaLocation="unit_relation.xsd"/>
+    <xs:include schemaLocation="korobyte.xsd"/>
+    <xs:complexType name="unitInfo">
+        <xs:all>
+            <xs:element name="counts" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="count" type="unitCount" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="compositeId" type="compositeId" minOccurs="0"/>
+            <xs:element name="relations" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="relation" type="unitRelation" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="korobyte" type="korobyte" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

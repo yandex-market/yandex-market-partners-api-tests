@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="../Common/location.xsd"/>
+    <xs:include schemaLocation="item.xsd"/>
+    <xs:include schemaLocation="../Common/korobyte.xsd"/>
+    <xs:include schemaLocation="../Common/delivery.xsd"/>
+    <xs:include schemaLocation="../Common/doc_data.xsd"/>
+    <xs:include schemaLocation="warehouse.xsd"/>
+    <xs:include schemaLocation="../Common/recipient.xsd"/>
+    <xs:include schemaLocation="place.xsd"/>
+    <xs:include schemaLocation="sender.xsd"/>
+    <xs:include schemaLocation="../Common/cargo_type.xsd"/>
+    <xs:element name="order">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="orderId" type="resourceId"/>
+                <xs:element name="locationTo" type="location"/>
+                <xs:element name="items">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="item" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="korobyte" type="korobyte" minOccurs="0"/>
+                <xs:element name="assessedCost" type="xs:float"/>
+                <xs:element name="paymentMethod">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:enumeration value="0"/>
+                            <xs:enumeration value="1"/>
+                            <xs:enumeration value="2"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="delivery" minOccurs="0"/>
+                <xs:element name="deliveryType">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:enumeration value="0"/>
+                            <xs:enumeration value="1"/>
+                            <xs:enumeration value="2"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="deliveryCost" type="xs:float"/>
+                <xs:element name="documentData" type="docData" minOccurs="0"/>
+                <xs:element name="warehouse" type="warehouse"/>
+                <xs:element name="warehouseFrom" type="warehouse" minOccurs="0"/>
+                <xs:element name="recipient" type="recipient"/>
+                <xs:element name="total" type="xs:float"/>
+                <xs:element name="amountPrepaid" type="xs:float"/>
+                <xs:element name="externalId" type="resourceId" minOccurs="0"/>
+                <xs:element name="places" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Place" type="place"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="services" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="service" type="service"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="waybill" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="param"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="pickupPointCode" type="xs:string" minOccurs="0"/>
+                <xs:element name="deliveryDate" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="shipmentDate" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="deliveryInterval" type="xs:string" minOccurs="0"/>
+                <xs:element name="sender" type="sender" minOccurs="0"/>
+                <xs:element name="tariff" type="xs:string" minOccurs="0"/>
+                <xs:element name="comment" type="xs:string" minOccurs="0"/>
+                <xs:element name="maxAbsentItemsPricePercent" type="xs:float" minOccurs="0"/>
+                <xs:element name="cargoCost" type="xs:float" minOccurs="0"/>
+                <xs:element name="toFulfillment" type="xs:boolean" minOccurs="0"/>
+                <xs:element name="locationFrom" type="location" minOccurs="0"/>
+                <xs:element name="weight" type="xs:float" minOccurs="0"/>
+                <xs:element name="length" type="xs:int" minOccurs="0"/>
+                <xs:element name="width" type="xs:int" minOccurs="0"/>
+                <xs:element name="height" type="xs:int" minOccurs="0"/>
+                <xs:element name="cargoType" type="cargoType" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

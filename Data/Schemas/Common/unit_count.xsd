@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="unitCount">
+        <xs:all>
+            <xs:element name="countType" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="FIT"/>
+                        <xs:enumeration value="DEFECT"/>
+                        <xs:enumeration value="SURPLUS"/>
+                        <xs:enumeration value="UNDEFINED"/>
+                        <xs:enumeration value="ANOMALY"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="quantity" type="xs:int" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

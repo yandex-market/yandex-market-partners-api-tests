@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../Common/resource_id.xsd"/>
+    <xs:include schemaLocation="../Common/person.xsd"/>
+    <xs:include schemaLocation="../Common/phone.xsd"/>
+    <xs:include schemaLocation="car.xsd"/>
+    <xs:include schemaLocation="legalEntity.xsd"/>
+    <xs:complexType name="courier">
+        <xs:all>
+            <xs:element name="partnerId" type="resourceId" minOccurs="0"/>
+            <xs:element name="persons" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="person" type="person" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="phone" type="phone" minOccurs="0"/>
+            <xs:element name="car" type="car" minOccurs="0"/>
+            <xs:element name="legalEntity" type="legalEntity" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

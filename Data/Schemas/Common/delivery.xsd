@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="phone.xsd"/>
+    <xs:include schemaLocation="doc_template.xsd"/>
+    <xs:include schemaLocation="../Delivery/resource_id.xsd"/>
+    <xs:include schemaLocation="work_time.xsd"/>
+    <xs:element name="delivery">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="phones">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="phone" type="phone"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="contract" type="xs:string"/>
+                <xs:element name="docs">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="docTemplate"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="priority" type="xs:int"/>
+                <xs:element name="deliveryId" type="resourceId" minOccurs="0"/>
+                <xs:element name="intakeTime" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="workTime"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="composite_id.xsd"/>
+    <xs:complexType name="unitRelation">
+        <xs:all>
+            <xs:element name="parentId" type="compositeId" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
