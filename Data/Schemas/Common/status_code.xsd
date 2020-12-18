@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="statusCode">
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="-1"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="20"/>
+            <xs:enumeration value="30"/>
+            <xs:enumeration value="40"/>
+            <xs:enumeration value="50"/>
+            <xs:enumeration value="100"/>
+            <xs:enumeration value="150"/>
+            <xs:enumeration value="200"/>
+            <xs:enumeration value="250"/>
+            <xs:enumeration value="310"/>
+            <xs:enumeration value="320"/>
+            <xs:enumeration value="325"/>
+            <xs:enumeration value="330"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

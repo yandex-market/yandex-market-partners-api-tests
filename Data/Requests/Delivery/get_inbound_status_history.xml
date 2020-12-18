@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <hash>hahs</hash>
+    <uniq>uniq</uniq>
+    <request type="getInboundStatusHistory">
+        <inboundIds>
+            <inboundId>
+                <yandexId>yandexId</yandexId>
+                <partnerId>partnerId</partnerId>
+            </inboundId>
+        </inboundIds>
+    </request>
+</root>

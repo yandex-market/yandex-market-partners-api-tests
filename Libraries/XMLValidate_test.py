@@ -32,7 +32,7 @@ class OrdersTestCase(unittest.TestCase):
         xml_validate("XMLValidateTestData/Delivery/get_order_response.xml", xsd_path)
 
 
-class MovementTestCase(unittest.TestCase):
+class InboundTestCase(unittest.TestCase):
     def test_validate_put_inbound_response(self):
         xsd_path = "../Data/Schemas/Responses/Delivery/put_inbound_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/put_inbound_response.xml", xsd_path)
@@ -40,6 +40,14 @@ class MovementTestCase(unittest.TestCase):
     def test_validate_get_inbound_response(self):
         xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/get_inbound_response.xml", xsd_path)
+
+    def test_validate_get_inbound_status_response(self):
+        xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_status_response.xsd"
+        xml_validate("XMLValidateTestData/Delivery/get_inbound_status_response.xml", xsd_path)
+
+    def test_validate_get_inbound_status_history_response(self):
+        xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_status_history_response.xsd"
+        xml_validate("XMLValidateTestData/Delivery/get_inbound_status_history_response.xml", xsd_path)
 
 
 if __name__ == '__main__':

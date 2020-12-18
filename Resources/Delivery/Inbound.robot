@@ -39,13 +39,13 @@ Inbound Exist in
 
 #-----------------------------------------------------------------------------------------------------------------------
 Get inbound from
-    [Arguments]             ${partner}
-    ${xml_request}          Parse xml               Data/Requests/Delivery/get_inbound.xml
-    Set Element Text        ${xml_request}          ${YANDEX_ID}    xpath=request/inboundId/yandexId
-    Set Element Text        ${xml_request}          ${PARTNER_ID}   xpath=request/inboundId/partnerId
+    [Arguments]                 ${partner}
+    ${xml_request}              Parse xml               Data/Requests/Delivery/get_inbound.xml
+    Set Element Text            ${xml_request}          ${YANDEX_ID}    xpath=request/inboundId/yandexId
+    Set Element Text            ${xml_request}          ${PARTNER_ID}   xpath=request/inboundId/partnerId
 
-    ${xml_response}         Send delivery request   ${xml_request}  ${partner.urls.get_inbound}
-    [Return]                ${xml_response}
+    ${xml_response}             Send delivery request   ${xml_request}  ${partner.urls.get_inbound}
+    [Return]                    ${xml_response}
 
 
 Check inboud id from
