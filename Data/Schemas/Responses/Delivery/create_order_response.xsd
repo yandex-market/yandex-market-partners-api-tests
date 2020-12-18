@@ -4,7 +4,7 @@
     <xs:include schemaLocation="../../Common/Delivery/resource_id.xsd"/>
     <xs:element name="root">
         <xs:complexType>
-            <xs:sequence>
+            <xs:all>
                 <xs:element name="uniq" type="xs:string" minOccurs="0"/>
                 <xs:element name="hash" type="xs:string" minOccurs="0"/>
                 <xs:element ref="requestState"/>
@@ -17,7 +17,7 @@
                         <xs:attribute name="type" type="xs:string" fixed="createOrder" use="required"/>
                     </xs:complexType>
                 </xs:element>
-            </xs:sequence>
+            </xs:all>
         </xs:complexType>
     </xs:element>
 </xs:schema>

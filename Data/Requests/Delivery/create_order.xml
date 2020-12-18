@@ -38,7 +38,7 @@
             <tariff>Самовывоз</tariff>
             <deliveryType>1</deliveryType>
             <deliveryCost>99</deliveryCost>
-            <deliveryDate>2021-08-29T00:00:00+03:00</deliveryDate>
+            <deliveryDate>2021-01-29T00:00:00+03:00</deliveryDate>
             <deliveryInterval>03:00:00+03:00/02:59:00+03:00</deliveryInterval>
             <total>0</total>
             <pickupPointCode>YEKB6</pickupPointCode>
@@ -122,7 +122,7 @@
                     </phone>
                 </phones>
             </warehouse>
-            <shipmentDate>2021-08-22T00:00:00+03:00</shipmentDate>
+            <shipmentDate>2021-01-22T00:00:00+03:00</shipmentDate>
             <items>
                 <item>
                     <article>475690200345480.Checkouter-test-20</article>

@@ -3,7 +3,7 @@ Documentation  Parnter method test example
 
 Library     RequestsLibrary
 
-Resource    ../../Resources/Movement/Inbound.robot
+Resource    ../../Resources/Delivery/Inbound.robot
 
 Test Teardown  Delete All Sessions
 

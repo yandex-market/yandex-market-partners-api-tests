@@ -2,8 +2,9 @@
 Library     XML
 Library     String
 
-Resource    ../Validation.robot
 Resource    Helpers.robot
+Resource    ../Validation.robot
+Resource    ../DateTime.robot
 
 
 *** Keywords ***
@@ -14,7 +15,8 @@ Created order in
     ${xml_request}                  Parse xml               Data/Requests/Delivery/create_order.xml
     Set Element Text                ${xml_request}          ${YANDEX_ID}        xpath=request/order/orderId/yandexId
     ${NEW_ORDER}                    Get Element             ${xml_request}      xpath=request/order
-    ${delivery_date}                Get Time                time_=NOW + 1day
+
+    ${delivery_date}                Generate datetime       NOW + 1day
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/deliveryDate
     Set Element Text                ${xml_request}          ${delivery_date}        xpath=request/order/shipmentDate
 
@@ -68,7 +70,7 @@ Remove order item from
     Set partner id into             ${xml_request}          ${PARTNER_ID}   request/orderId
 
     ${xml_response}                 Send delivery request   ${xml_request}  ${partner.urls.update_order_items}
-    Validate response               ${xml_response}         Data/Responses/Schemas/Delivery/update_order_items_response.xsd
+    Validate response               ${xml_response}         Data/Schemas/Responses/Delivery/update_order_items_response.xsd
     Check errors not exist from     ${xml_response}
     Check partner id in             ${xml_response}         ${PARTNER_ID}   response/orderId
 
