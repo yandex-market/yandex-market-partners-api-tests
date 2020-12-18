@@ -33,7 +33,7 @@ Inbound Exist in
     ${xml_response}                 Get inbound from    ${partner}
     Validate response               ${xml_response}     Data/Schemas/Responses/Delivery/get_inbound_response.xsd
     Check errors not exist from     ${xml_response}
-    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/order/orderId
+    Check inboud id from            ${xml_response}     response/inbound/inboundId
     [Return]                        ${xml_response}
 
 
@@ -46,3 +46,9 @@ Get inbound from
 
     ${xml_response}         Send delivery request   ${xml_request}  ${partner.urls.get_inbound}
     [Return]                ${xml_response}
+
+
+Check inboud id from
+    [Arguments]                 ${xml_response}     ${xpath}
+    Element Text Should Be      ${xml_response}     ${YANDEX_ID}    xpath=${xpath}/yandexId
+    Element Text Should Be      ${xml_response}     ${PARTNER_ID}   xpath=${xpath}/partnerId

@@ -3,7 +3,7 @@
     <xs:include schemaLocation="../../Common/request_state.xsd"/>
     <xs:element name="root">
         <xs:complexType>
-            <xs:sequence>
+            <xs:all>
                 <xs:element name="uniq" type="xs:string" minOccurs="0"/>
                 <xs:element name="hash" type="xs:string" minOccurs="0"/>
                 <xs:element name="response">
@@ -22,7 +22,7 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element ref="requestState"/>
-            </xs:sequence>
+            </xs:all>
         </xs:complexType>
     </xs:element>
 </xs:schema>
