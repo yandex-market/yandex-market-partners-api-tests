@@ -18,11 +18,11 @@ Create and get outbound
     Then Outbound Exist in  ${partner}
 
 
-#Create and check status
-#    Given Put Inbound into  ${partner}
-#    Then Inbound Status Is Created in  ${partner}
-#
-#
+Create and check status
+    Given Put Outbound into  ${partner}
+    Then Outbound Status Is Created in  ${partner}
+
+
 #Create and check history
 #    Given Put Inbound into  ${partner}
 #    Then Inbound Status History Is Correct in  ${partner}
