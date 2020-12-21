@@ -41,10 +41,10 @@ Outbound status is created in
     Check outbound status in        ${partner}          1     Outbound was not created
 
 
-#Outbound Status History Is Correct in
-#    [Arguments]                     ${partner}
-#    Get outbound status history in   ${partner}
-#
+Outbound Status History Is Correct in
+    [Arguments]                     ${partner}
+    Get outbound status history in   ${partner}
+
 ##-----------------------------------------------------------------------------------------------------------------------
 Get outbound from
     [Arguments]                 ${partner}
@@ -79,13 +79,13 @@ Check outbound status in
     ...                             xpath=response/outboundStatuses/outboundStatus/status/statusCode
 
 
-#Get outbound status history in
-#    [Arguments]                     ${partner}
-#    ${xml_request}                  Parse xml           Data/Requests/Common/get_outbound_status_history.xml
-#    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/outboundIds/outboundId/yandexId
-#    Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/outboundIds/outboundId/partnerId
-#
-#    ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_outbound_status_history}
-#    Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_outbound_status_history_response.xsd
-#    Check errors not exist from     ${xml_response}
-#    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/outboundStatusHistories/outboundStatusHistory/outboundId
+Get outbound status history in
+    [Arguments]                     ${partner}
+    ${xml_request}                  Parse xml           Data/Requests/Common/get_outbound_status_history.xml
+    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/outboundIds/outboundId/yandexId
+    Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/outboundIds/outboundId/partnerId
+
+    ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_outbound_status_history}
+    Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_outbound_status_history_response.xsd
+    Check errors not exist from     ${xml_response}
+    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/outboundStatusHistories/outboundStatusHistory/outboundId

@@ -63,6 +63,10 @@ class OutboundTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Common/get_outbound_status_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_outbound_status_response.xml", xsd_path)
 
+    def test_validate_get_outbound_status_history_response(self):
+        xsd_path = "../Data/Schemas/Responses/Common/get_outbound_status_history_response.xsd"
+        xml_validate("XMLValidateTestData/Common/get_outbound_status_history_response.xml", xsd_path)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -23,6 +23,7 @@ Create and check status
     Then Outbound Status Is Created in  ${partner}
 
 
-#Create and check history
-#    Given Put Inbound into  ${partner}
-#    Then Inbound Status History Is Correct in  ${partner}
+Create and check history
+    Given Put Outbound into  ${partner}
+    Then Outbound Status History Is Correct in  ${partner}
+
