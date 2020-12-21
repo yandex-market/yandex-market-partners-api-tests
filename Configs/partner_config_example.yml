@@ -10,3 +10,4 @@ partner:
     put_inbound: ${put_inbound_url}
     get_inbound: ${get_inbound_url}
     get_inbound_status: ${get_inbound_status_url}
+    get_inbound_status_history: ${get_inbound_status_history_url}

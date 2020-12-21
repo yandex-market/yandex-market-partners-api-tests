@@ -10,8 +10,9 @@
 
 **Запуск тестов:**
 - `robot -P Libraries -V Configs/{config name} Tests/Orders.robot`
+- `robot -P Libraries -V Configs/{config name} Tests/Inbound.robot`
 
 
 **Валидация**
 Во время прохождения тестов все ответы (xml) проходят валидацию.
-Схемы валидаций xml ответов лежат в `Data/Responses/Schemas`.
+Схемы валидаций xml ответов лежат в `Data/Schemas/Responses`.

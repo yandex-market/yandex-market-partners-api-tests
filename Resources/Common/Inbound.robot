@@ -18,7 +18,7 @@ Put inbound into
     Set Element Text                ${xml_request}          ${interval}         xpath=request/inbound/interval
     ${NEW_INBOUND}                  Get Element             ${xml_request}      xpath=request/inbound
 
-    ${xml_response}                 Send delivery request   ${xml_request}      ${partner.urls.put_inbound}
+    ${xml_response}                 Send common request     ${xml_request}      ${partner.urls.put_inbound}
     Validate response               ${xml_response}         Data/Schemas/Responses/Common/put_inbound_response.xsd
     Check errors not exist from     ${xml_response}
 
@@ -42,6 +42,10 @@ Inbound status is created in
     Check inbound status in         ${partner}          1     Inbound was not created
 
 
+Inbound Status History Is Correct in
+    [Arguments]                     ${partner}
+    Get inbound status history in   ${partner}
+
 #-----------------------------------------------------------------------------------------------------------------------
 Get inbound from
     [Arguments]                 ${partner}
@@ -49,7 +53,7 @@ Get inbound from
     Set Element Text            ${xml_request}          ${YANDEX_ID}    xpath=request/inboundId/yandexId
     Set Element Text            ${xml_request}          ${PARTNER_ID}   xpath=request/inboundId/partnerId
 
-    ${xml_response}             Send delivery request   ${xml_request}  ${partner.urls.get_inbound}
+    ${xml_response}             Send common request     ${xml_request}  ${partner.urls.get_inbound}
 
     Validate response           ${xml_response}         Data/Schemas/Responses/Common/get_inbound_response.xsd
     [Return]                    ${xml_response}
@@ -68,8 +72,21 @@ Check inbound status in
     Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/inboundIds/inboundId/partnerId
 
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_inbound_status}
+    Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_inbound_status_response.xsd
     Check errors not exist from     ${xml_response}
     Check partner id in             ${xml_response}     ${PARTNER_ID}   response/inboundStatuses/inboundStatus/inboundId
 
     Element Text Should Be          ${xml_response}     ${status}       message=${message}
     ...                             xpath=response/inboundStatuses/inboundStatus/status/statusCode
+
+
+Get inbound status history in
+    [Arguments]                     ${partner}
+    ${xml_request}                  Parse xml           Data/Requests/Common/get_inbound_status_history.xml
+    Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/inboundIds/inboundId/yandexId
+    Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/inboundIds/inboundId/partnerId
+
+    ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_inbound_status_history}
+    Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_inbound_status_history_response.xsd
+    Check errors not exist from     ${xml_response}
+    Check partner id in             ${xml_response}     ${PARTNER_ID}   response/inboundStatusHistories/inboundStatusHistory/inboundId

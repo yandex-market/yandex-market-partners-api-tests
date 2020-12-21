@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <token>token</token>
-    <hash>hahs</hash>
+    <hash>hash</hash>
     <uniq>uniq</uniq>
     <request type="getInboundStatusHistory">
         <inboundIds>

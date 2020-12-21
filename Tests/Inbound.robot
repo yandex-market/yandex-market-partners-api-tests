@@ -3,7 +3,7 @@ Documentation  Parnter method test example
 
 Library     RequestsLibrary
 
-Resource    ../../Resources/Delivery/Inbound.robot
+Resource    ../../Resources/Common/Inbound.robot
 
 Test Teardown  Delete All Sessions
 
@@ -21,3 +21,8 @@ Create and get inbound
 Create and check status
     Given Put Inbound into  ${partner}
     Then Inbound Status Is Created in  ${partner}
+
+
+Create and check history
+    Given Put Inbound into  ${partner}
+    Then Inbound Status History Is Correct in  ${partner}
