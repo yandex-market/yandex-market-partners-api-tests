@@ -11,3 +11,8 @@ partner:
     get_inbound: ${get_inbound_url}
     get_inbound_status: ${get_inbound_status_url}
     get_inbound_status_history: ${get_inbound_status_history_url}
+
+    put_outbound: ${put_outbound_url}
+    get_outbound: ${get_outbound_url}
+    get_outbound_status: ${get_outbound_status_url}
+    get_outbound_status_history: ${get_outbound_status_history_url}

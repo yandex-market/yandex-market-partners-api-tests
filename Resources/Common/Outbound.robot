@@ -18,7 +18,7 @@ Put outbound into
     Set Element Text                ${xml_request}          ${interval}         xpath=request/outbound/interval
     ${NEW_INBOUND}                  Get Element             ${xml_request}      xpath=request/outbound
 
-    ${xml_response}                 Send common request     ${xml_request}      ${partner.urls.put_inbound}
+    ${xml_response}                 Send common request     ${xml_request}      ${partner.urls.put_outbound}
     Validate response               ${xml_response}         Data/Schemas/Responses/Common/put_outbound_response.xsd
     Check errors not exist from     ${xml_response}
 
@@ -28,15 +28,14 @@ Put outbound into
     Set Test Variable               ${NEW_INBOUND}
 
 
-#Inbound Exist in
-#    [Arguments]                     ${partner}
-#    ${xml_response}                 Get inbound from    ${partner}
-#    Check errors not exist from     ${xml_response}
-#    Check inboud id from            ${xml_response}     response/inbound/inboundId
-#    [Return]                        ${xml_response}
-#
-#
-#
+Outbound Exist in
+    [Arguments]                     ${partner}
+    ${xml_response}                 Get outbound from   ${partner}
+    Check errors not exist from     ${xml_response}
+    Check outbound id from          ${xml_response}     response/outbound/outboundId
+    [Return]                        ${xml_response}
+
+
 #Inbound status is created in
 #    [Arguments]                     ${partner}
 #    Check inbound status in         ${partner}          1     Inbound was not created
@@ -47,24 +46,24 @@ Put outbound into
 #    Get inbound status history in   ${partner}
 #
 ##-----------------------------------------------------------------------------------------------------------------------
-#Get inbound from
-#    [Arguments]                 ${partner}
-#    ${xml_request}              Parse xml               Data/Requests/Common/get_inbound.xml
-#    Set Element Text            ${xml_request}          ${YANDEX_ID}    xpath=request/inboundId/yandexId
-#    Set Element Text            ${xml_request}          ${PARTNER_ID}   xpath=request/inboundId/partnerId
-#
-#    ${xml_response}             Send common request     ${xml_request}  ${partner.urls.get_inbound}
-#
-#    Validate response           ${xml_response}         Data/Schemas/Responses/Common/get_inbound_response.xsd
-#    [Return]                    ${xml_response}
-#
-#
-#Check inboud id from
-#    [Arguments]                 ${xml_response}     ${xpath}
-#    Element Text Should Be      ${xml_response}     ${YANDEX_ID}    xpath=${xpath}/yandexId
-#    Element Text Should Be      ${xml_response}     ${PARTNER_ID}   xpath=${xpath}/partnerId
-#
-#
+Get outbound from
+    [Arguments]                 ${partner}
+    ${xml_request}              Parse xml               Data/Requests/Common/get_outbound.xml
+    Set Element Text            ${xml_request}          ${YANDEX_ID}    xpath=request/outboundId/yandexId
+    Set Element Text            ${xml_request}          ${PARTNER_ID}   xpath=request/outboundId/partnerId
+
+    ${xml_response}             Send common request     ${xml_request}  ${partner.urls.get_outbound}
+
+    Validate response           ${xml_response}         Data/Schemas/Responses/Delivery/get_outbound_response.xsd
+    [Return]                    ${xml_response}
+
+
+Check outbound id from
+    [Arguments]                 ${xml_response}     ${xpath}
+    Element Text Should Be      ${xml_response}     ${YANDEX_ID}    xpath=${xpath}/yandexId
+    Element Text Should Be      ${xml_response}     ${PARTNER_ID}   xpath=${xpath}/partnerId
+
+
 #Check inbound status in
 #    [Arguments]                     ${partner}          ${status}       ${message}
 #    ${xml_request}                  Parse xml           Data/Requests/Common/get_inbound_status.xml
