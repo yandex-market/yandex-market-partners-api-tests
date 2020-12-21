@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../unit_info.xsd"/>
+    <xs:include schemaLocation="../Common/unit_info.xsd"/>
     <xs:include schemaLocation="cargo_type.xsd"/>
     <xs:include schemaLocation="service.xsd"/>
-    <xs:include schemaLocation="../barcode.xsd"/>
+    <xs:include schemaLocation="../Common/barcode.xsd"/>
     <xs:include schemaLocation="tax.xsd"/>
-    <xs:include schemaLocation="../remaining_lifetimes.xsd"/>
+    <xs:include schemaLocation="../Common/remaining_lifetimes.xsd"/>
     <xs:include schemaLocation="transit_data.xsd"/>
     <xs:include schemaLocation="supplier.xsd"/>
     <xs:include schemaLocation="instances.xsd"/>

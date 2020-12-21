@@ -6,7 +6,7 @@ from Libraries.XMLValidate import xml_validate
 
 class DataTestCase(unittest.TestCase):
     def test_validate_request_state(self):
-        xsd_path = "../Data/Schemas/Common/request_state.xsd"
+        xsd_path = "../Data/Schemas/Models/Common/request_state.xsd"
 
         xml_validate("XMLValidateTestData/empty_is_error.xml", xsd_path)
 
@@ -34,19 +34,19 @@ class OrdersTestCase(unittest.TestCase):
 
 class InboundTestCase(unittest.TestCase):
     def test_validate_put_inbound_response(self):
-        xsd_path = "../Data/Schemas/Responses/Delivery/put_inbound_response.xsd"
+        xsd_path = "../Data/Schemas/Responses/Common/put_inbound_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/put_inbound_response.xml", xsd_path)
 
     def test_validate_get_inbound_response(self):
-        xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_response.xsd"
+        xsd_path = "../Data/Schemas/Responses/Common/get_inbound_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/get_inbound_response.xml", xsd_path)
 
     def test_validate_get_inbound_status_response(self):
-        xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_status_response.xsd"
+        xsd_path = "../Data/Schemas/Responses/Common/get_inbound_status_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/get_inbound_status_response.xml", xsd_path)
 
     def test_validate_get_inbound_status_history_response(self):
-        xsd_path = "../Data/Schemas/Responses/Delivery/get_inbound_status_history_response.xsd"
+        xsd_path = "../Data/Schemas/Responses/Common/get_inbound_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Delivery/get_inbound_status_history_response.xml", xsd_path)
 
 

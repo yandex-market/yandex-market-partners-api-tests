@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../../Common/request_state.xsd"/>
-    <xs:include schemaLocation="../../Common/Delivery/order.xsd"/>
+    <xs:include schemaLocation="../../Models/Common/request_state.xsd"/>
+    <xs:include schemaLocation="../../Models/Delivery/order.xsd"/>
     <xs:element name="root">
         <xs:complexType>
             <xs:all>

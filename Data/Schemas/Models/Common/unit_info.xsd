@@ -3,7 +3,7 @@
     <xs:include schemaLocation="unit_count.xsd"/>
     <xs:include schemaLocation="composite_id.xsd"/>
     <xs:include schemaLocation="unit_relation.xsd"/>
-    <xs:include schemaLocation="Delivery/korobyte.xsd"/>
+    <xs:include schemaLocation="../Delivery/korobyte.xsd"/>
     <xs:complexType name="unitInfo">
         <xs:all>
             <xs:element name="counts" minOccurs="0">

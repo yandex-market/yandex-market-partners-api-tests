@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="Delivery/phone.xsd"/>
+    <xs:include schemaLocation="../Delivery/phone.xsd"/>
     <xs:include schemaLocation="doc_template.xsd"/>
-    <xs:include schemaLocation="Delivery/resource_id.xsd"/>
-    <xs:include schemaLocation="Delivery/work_time.xsd"/>
+    <xs:include schemaLocation="../Delivery/resource_id.xsd"/>
+    <xs:include schemaLocation="../Delivery/work_time.xsd"/>
     <xs:element name="delivery">
         <xs:complexType>
             <xs:all>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="../../Common/request_state.xsd"/>
-    <xs:include schemaLocation="../../Common/inbound_status_history.xsd"/>
+    <xs:include schemaLocation="../../Models/Common/request_state.xsd"/>
+    <xs:include schemaLocation="../../Models/Common/inbound_status.xsd"/>
     <xs:element name="root">
         <xs:complexType>
             <xs:all>
@@ -10,15 +10,15 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:all>
-                            <xs:element name="inboundStatusHistories">
+                            <xs:element name="inboundStatuses">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="inboundStatusHistory" type="inboundStatusHistory" maxOccurs="unbounded"/>
+                                        <xs:element name="inboundStatus" type="inboundStatus" maxOccurs="unbounded"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:all>
-                        <xs:attribute name="type" type="xs:string" fixed="getInboundStatusHistory" use="required"/>
+                        <xs:attribute name="type" type="xs:string" fixed="getInboundStatus" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element ref="requestState"/>
