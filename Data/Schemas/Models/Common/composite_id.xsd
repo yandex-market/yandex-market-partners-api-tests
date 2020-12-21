@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="partial_id.xsd"/>
+    <xs:complexType name="compositeId">
+        <xs:all>
+            <xs:element name="partialIds" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="partialId" type="partialId" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

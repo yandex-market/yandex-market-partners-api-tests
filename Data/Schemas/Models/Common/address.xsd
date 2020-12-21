@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="location.xsd"/>
+    <xs:complexType name="address">
+        <xs:all>
+            <xs:element name="combinedAddress" type="xs:string"/>
+            <xs:element name="structuredAddress" type="location" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

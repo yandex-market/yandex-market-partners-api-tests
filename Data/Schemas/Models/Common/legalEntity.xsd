@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="address.xsd"/>
+    <xs:complexType name="legalEntity">
+        <xs:all>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="legalName" type="xs:string" minOccurs="0"/>
+            <xs:element name="legalForm" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="-1"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                        <xs:enumeration value="4"/>
+                        <xs:enumeration value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ogrn" type="xs:string" minOccurs="0"/>
+            <xs:element name="inn" type="xs:string" minOccurs="0"/>
+            <xs:element name="kpp" type="xs:string" minOccurs="0"/>
+            <xs:element name="address" type="address" minOccurs="0"/>
+            <xs:element name="account" type="xs:string" minOccurs="0"/>
+            <xs:element name="bank" type="xs:string" minOccurs="0"/>
+            <xs:element name="bik" type="xs:string" minOccurs="0"/>
+            <xs:element name="correspondentAccount" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

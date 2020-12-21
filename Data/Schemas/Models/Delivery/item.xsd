@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="unit_id.xsd"/>
+    <xs:include schemaLocation="korobyte.xsd"/>
+    <xs:include schemaLocation="tax.xsd"/>
+    <xs:include schemaLocation="cargo_type.xsd"/>
+    <xs:include schemaLocation="transit_data.xsd"/>
+    <xs:include schemaLocation="supplier.xsd"/>
+    <xs:include schemaLocation="instances.xsd"/>
+    <xs:element name="item">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="count" type="xs:int"/>
+                <xs:element name="price" type="xs:float"/>
+                <xs:element name="article" type="xs:string" minOccurs="0"/>
+                <xs:element name="taxes" minOccurs="0" nillable="true">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="tax" type="tax" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="nameEnglish" type="xs:string" minOccurs="0"/>
+                <!-- deprecated -->
+                <xs:element name="cargoType" type="cargoType" minOccurs="0"/>
+                <xs:element name="cargoTypes" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cargoType" type="cargoType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="url" type="xs:string" minOccurs="0"/>
+                <xs:element name="categoryName" type="xs:string" minOccurs="0"/>
+                <xs:element name="hsCode" type="xs:string" minOccurs="0"/>
+                <xs:element name="korobyte" type="korobyte" minOccurs="0"/>
+                <xs:element name="itemDescriptionEnglish" type="xs:string" minOccurs="0"/>
+                <xs:element name="unitId" type="unitId" minOccurs="0"/>
+                <xs:element name="transitData" type="transitData" minOccurs="0"/>
+                <!-- FIXME: is not nullable -->
+                <xs:element name="supplier" type="supplier" minOccurs="0" nillable="true"/>
+                <xs:element name="instances" type="instances" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
