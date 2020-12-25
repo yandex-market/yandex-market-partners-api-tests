@@ -4,7 +4,7 @@
     <xs:include schemaLocation="person.xsd"/>
     <xs:include schemaLocation="phone.xsd"/>
     <xs:include schemaLocation="car.xsd"/>
-    <xs:include schemaLocation="legalEntity.xsd"/>
+    <xs:include schemaLocation="legal_entity.xsd"/>
     <xs:complexType name="courier">
         <xs:all>
             <xs:element name="partnerId" type="resourceId" minOccurs="0"/>

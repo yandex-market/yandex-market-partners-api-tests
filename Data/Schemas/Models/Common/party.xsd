@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="logistic_point.xsd"/>
+    <xs:include schemaLocation="legal_entity.xsd"/>
+    <xs:complexType name="party">
+        <xs:all>
+            <xs:element name="logisticPoint" type="logisticPoint"/>
+            <xs:element name="legalEntity" type="legalEntity" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

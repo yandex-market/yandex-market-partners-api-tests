@@ -13,11 +13,11 @@ Create movement
     Put Movement into  ${partner}
 
 
-#Create and get outbound
-#    Given Put Outbound into  ${partner}
-#    Then Outbound Exist in  ${partner}
-#
-#
+Create and get movement
+    Given Put Movement into  ${partner}
+    Then Movement Exist in  ${partner}
+
+
 #Create and check status
 #    Given Put Outbound into  ${partner}
 #    Then Outbound Status Is Created in  ${partner}

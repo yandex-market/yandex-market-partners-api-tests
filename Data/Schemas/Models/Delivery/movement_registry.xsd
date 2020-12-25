@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../Common/resource_id.xsd"/>
+    <xs:include schemaLocation="../Common/registry_pallet.xsd"/>
+    <xs:include schemaLocation="../Common/registry_box.xsd"/>
+    <xs:include schemaLocation="registry_item.xsd"/>
+    <xs:include schemaLocation="../Common/registry_type.xsd"/>
+    <xs:complexType name="movementRegistry">
+        <xs:all>
+            <xs:element name="registryId" type="resourceId"/>
+            <xs:element name="movementId" type="resourceId"/>
+            <xs:element name="registryType" type="registryType"/>
+            <xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="comment" type="xs:string" minOccurs="0"/>
+            <xs:element name="pallets" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="pallet" type="registryPallet" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="boxes" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="box" type="registryBox" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="items" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="item" type="registryItem" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
