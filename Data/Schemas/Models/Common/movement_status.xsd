@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="status.xsd"/>
+    <xs:complexType name="movementStatus">
+        <xs:all>
+            <xs:element name="movementId" type="resourceId"/>
+            <xs:element name="status" type="status"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

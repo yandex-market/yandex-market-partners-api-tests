@@ -18,12 +18,12 @@ Create and get movement
     Then Movement Exist in  ${partner}
 
 
-#Create and check status
-#    Given Put Outbound into  ${partner}
-#    Then Outbound Status Is Created in  ${partner}
-#
-#
-#Create and check history
-#    Given Put Outbound into  ${partner}
-#    Then Outbound Status History Is Correct in  ${partner}
+Create and check status
+    Given Put Movement into  ${partner}
+    Then Movement Status Is Created in  ${partner}
+
+
+Create and check history
+    Given Put Movement into  ${partner}
+    Then Movement Status History Is Correct in  ${partner}
 
