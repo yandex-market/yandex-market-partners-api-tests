@@ -10,9 +10,9 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="inboundId" type="resourceId"/>
+                            <xs:element name="outboundId" type="resourceId"/>
                         </xs:sequence>
-                        <xs:attribute name="type" type="xs:string" fixed="putInbound" use="required"/>
+                        <xs:attribute name="type" type="xs:string" fixed="putOutbound" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element ref="requestState"/>

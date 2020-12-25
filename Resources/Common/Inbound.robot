@@ -36,7 +36,6 @@ Inbound Exist in
     [Return]                        ${xml_response}
 
 
-
 Inbound status is created in
     [Arguments]                     ${partner}
     Check inbound status in         ${partner}          1     Inbound was not created
@@ -55,7 +54,7 @@ Get inbound from
 
     ${xml_response}             Send common request     ${xml_request}  ${partner.urls.get_inbound}
 
-    Validate response           ${xml_response}         Data/Schemas/Responses/Common/get_inbound_response.xsd
+    Validate response           ${xml_response}         Data/Schemas/Responses/Delivery/get_inbound_response.xsd
     [Return]                    ${xml_response}
 
 

@@ -2,7 +2,7 @@
 - `pip install -r requiremets.txt`
 
 
-**Конфигурация**
+**Конфигурация:**  
 Пример конфигурации находится в `Configs/partner_config_example.yml`.
 Для работы тестов необходимо скопировать конфиг и заполнить необходимые urls:  
 `cp Configs/partner_config_example.yml Configs/{config name}.yml`

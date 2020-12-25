@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <hash>hash</hash>
+    <uniq>uniq</uniq>
+    <request type="getOutboundStatus">
+        <outboundIds>
+            <outboundId>
+                <yandexId>yandexId</yandexId>
+                <partnerId>deliveryId</partnerId>
+            </outboundId>
+        </outboundIds>
+    </request>
+</root>
