@@ -11,6 +11,8 @@
 **Запуск тестов:**
 - `robot -P Libraries -V Configs/{config name} Tests/Orders.robot`
 - `robot -P Libraries -V Configs/{config name} Tests/Inbound.robot`
+- `robot -P Libraries -V Configs/{config name} Tests/Outbound.robot`
+- `robot -P Libraries -V Configs/{config name} Tests/Movement.robot`
 
 
 **Валидация:**  

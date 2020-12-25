@@ -68,5 +68,11 @@ class OutboundTestCase(unittest.TestCase):
         xml_validate("XMLValidateTestData/Common/get_outbound_status_history_response.xml", xsd_path)
 
 
+class MovementTestCase(unittest.TestCase):
+    def test_validate_put_movement_response(self):
+        xsd_path = "../Data/Schemas/Responses/Common/put_movement_response.xsd"
+        xml_validate("XMLValidateTestData/Common/put_movement_response.xml", xsd_path)
+
+
 if __name__ == '__main__':
     unittest.main()

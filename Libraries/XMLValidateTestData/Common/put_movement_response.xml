@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <hash>hash</hash>
+    <uniq>uniq</uniq>
+    <requestState>
+        <isError>false</isError>
+    </requestState>
+    <response type="putMovement">
+        <movementId>
+            <yandexId>yandexId</yandexId>
+            <partnerId>partnerId</partnerId>
+        </movementId>
+    </response>
+</root>
