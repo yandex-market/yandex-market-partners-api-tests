@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <hash>hash</hash>
+    <uniq>uniq</uniq>
+    <request type="getMovement">
+        <movementId>
+            <yandexId>yandexId</yandexId>
+            <partnerId>partnerId</partnerId>
+        </movementId>
+    </request>
+</root>

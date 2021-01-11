@@ -16,3 +16,8 @@ partner:
     get_outbound: ${get_outbound_url}
     get_outbound_status: ${get_outbound_status_url}
     get_outbound_status_history: ${get_outbound_status_history_url}
+
+    put_movement: ${put_movement_url}
+    get_movement: ${get_movement_url}
+    get_movement_status: ${get_movement_status_url}
+    get_movement_status_history: ${get_movement_status_history_url}

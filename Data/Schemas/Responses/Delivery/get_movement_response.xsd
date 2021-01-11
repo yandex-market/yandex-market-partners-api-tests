@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="../../Models/Common/request_state.xsd"/>
+    <xs:include schemaLocation="../../Models/Common/movement.xsd"/>
+    <xs:include schemaLocation="../../Models/Common/courier.xsd"/>
+    <xs:include schemaLocation="../../Models/Delivery/movement_registry.xsd"/>
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="uniq" type="xs:string" minOccurs="0"/>
+                <xs:element name="hash" type="xs:string" minOccurs="0"/>
+                <xs:element name="response">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="movement" type="movement"/>
+                            <xs:element name="courier" type="courier" minOccurs="0"/>
+                            <xs:element name="registries" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="registry" type="movementRegistry" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:all>
+                        <xs:attribute name="type" type="xs:string" fixed="getMovement" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="requestState"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="resource_id.xsd"/>
+    <xs:include schemaLocation="party.xsd"/>
+    <xs:complexType name="movement">
+        <xs:all>
+            <xs:element name="movementId" type="resourceId"/>
+            <xs:element name="interval" type="xs:string"/>
+            <xs:element name="volume" type="xs:float"/>
+            <xs:element name="weight" type="xs:float" minOccurs="0"/>
+            <xs:element name="shipper" type="party" minOccurs="0"/>
+            <xs:element name="receiver" type="party" minOccurs="0"/>
+            <xs:element name="comment" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
