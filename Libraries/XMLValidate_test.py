@@ -93,6 +93,10 @@ class MovementTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Common/get_movement_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_movement_status_history_response.xml", xsd_path)
 
+    def test_validate_put_movement_registry_response(self):
+        xsd_path = "../Data/Schemas/Responses/Delivery/put_movement_registry_response.xsd"
+        xml_validate("XMLValidateTestData/Delivery/put_movement_registry_response.xml", xsd_path)
+
 
 if __name__ == '__main__':
     unittest.main()
