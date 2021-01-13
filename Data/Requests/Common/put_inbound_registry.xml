@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <token>token</token>
+    <hash>hash</hash>
+    <uniq>uniq</uniq>
+    <request type="putInboundRegistry">
+        <registry>
+            <registryId>
+                <yandexId>yandexId</yandexId>
+            </registryId>
+            <inboundId>
+                <partnerId>partnerId</partnerId>
+                <yandexId>yandexId</yandexId>
+            </inboundId>
+            <registryType>0</registryType>
+            <date>2020-10-19T10:53:00+03:00</date>
+            <comment>this is a test object</comment>
+            <pallets>
+                <pallet>
+                    <unitInfo>
+                        <description>test pallet</description>
+                    </unitInfo>
+                </pallet>
+            </pallets>
+            <boxes>
+                <box>
+                    <unitInfo>
+                        <description>test box</description>
+                    </unitInfo>
+                </box>
+            </boxes>
+            <items>
+                <item>
+                    <unitInfo>
+                        <description>test item</description>
+                    </unitInfo>
+                    <price>8.80</price>
+                </item>
+            </items>
+        </registry>
+    </request>
+</root>

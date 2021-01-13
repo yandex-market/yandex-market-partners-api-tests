@@ -49,6 +49,10 @@ class InboundTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Common/get_inbound_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_inbound_status_history_response.xml", xsd_path)
 
+    def test_validate_put_inbound_registry_response(self):
+        xsd_path = "../Data/Schemas/Responses/Common/put_inbound_registry_response.xsd"
+        xml_validate("XMLValidateTestData/Common/put_inbound_registry_response.xml", xsd_path)
+
 
 class OutboundTestCase(unittest.TestCase):
     def test_validate_put_outbound_response(self):

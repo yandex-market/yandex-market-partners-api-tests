@@ -45,6 +45,26 @@ Inbound Status History Is Correct in
     [Arguments]                     ${partner}
     Get inbound status history in   ${partner}
 
+
+Put inbound registry into
+    [Arguments]                     ${partner}
+    ${REGISTRY_YANDEX_ID}           Generate Random String      7                   [NUMBERS]
+    ${registry_date}                Generate datetime           NOW
+
+    ${xml_request}                  Parse xml               Data/Requests/Common/put_inbound_registry.xml
+    Set Element Text                ${xml_request}          ${REGISTRY_YANDEX_ID}   xpath=request/registry/registryId/yandexId
+    Set Element Text                ${xml_request}          ${YANDEX_ID}            xpath=request/registry/inboundId/yandexId
+    Set Element Text                ${xml_request}          ${PARTNER_ID}           xpath=request/registry/inboundId/partnerId
+    Set Element Text                ${xml_request}          ${registry_date}        xpath=request/registry/date
+
+    ${xml_response}                 Send common request     ${xml_request}      ${partner.urls.put_inbound}
+    Validate response               ${xml_response}         Data/Schemas/Responses/Common/put_inbound_registry_response.xsd
+    Check errors not exist from     ${xml_response}
+
+    ${REGISTRY_PARTNER_ID}          Get Element Text        ${xml_response}     xpath=response/registryId/partnerId
+    Set Test Variable               ${REGISTRY_YANDEX_ID}
+    Set Test Variable               ${REGISTRY_PARTNER_ID}
+
 #-----------------------------------------------------------------------------------------------------------------------
 Get inbound from
     [Arguments]                 ${partner}
