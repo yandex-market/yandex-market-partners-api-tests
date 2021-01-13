@@ -30,4 +30,4 @@ Create and check history
 
 Create inbound registry
     Given Put Inbound into  ${partner}
-    Then Put inbound registry into  ${partner}
+    Then Put ds inbound registry into  ${partner}
