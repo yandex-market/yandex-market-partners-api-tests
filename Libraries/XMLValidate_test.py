@@ -49,6 +49,10 @@ class InboundTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Common/get_inbound_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_inbound_status_history_response.xml", xsd_path)
 
+    def test_validate_put_inbound_registry_response(self):
+        xsd_path = "../Data/Schemas/Responses/Common/put_inbound_registry_response.xsd"
+        xml_validate("XMLValidateTestData/Common/put_inbound_registry_response.xml", xsd_path)
+
 
 class OutboundTestCase(unittest.TestCase):
     def test_validate_put_outbound_response(self):
@@ -67,6 +71,10 @@ class OutboundTestCase(unittest.TestCase):
         xsd_path = "../Data/Schemas/Responses/Common/get_outbound_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_outbound_status_history_response.xml", xsd_path)
 
+    def test_validate_put_outbound_registry_response(self):
+        xsd_path = "../Data/Schemas/Responses/Common/put_outbound_registry_response.xsd"
+        xml_validate("XMLValidateTestData/Common/put_outbound_registry_response.xml", xsd_path)
+
 
 class MovementTestCase(unittest.TestCase):
     def test_validate_put_movement_response(self):
@@ -84,6 +92,10 @@ class MovementTestCase(unittest.TestCase):
     def test_validate_get_movement_status_history_response(self):
         xsd_path = "../Data/Schemas/Responses/Common/get_movement_status_history_response.xsd"
         xml_validate("XMLValidateTestData/Common/get_movement_status_history_response.xml", xsd_path)
+
+    def test_validate_put_movement_registry_response(self):
+        xsd_path = "../Data/Schemas/Responses/Delivery/put_movement_registry_response.xsd"
+        xml_validate("XMLValidateTestData/Delivery/put_movement_registry_response.xml", xsd_path)
 
 
 if __name__ == '__main__':

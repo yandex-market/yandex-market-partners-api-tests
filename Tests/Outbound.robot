@@ -27,3 +27,7 @@ Create and check history
     Given Put Outbound into  ${partner}
     Then Outbound Status History Is Correct in  ${partner}
 
+
+Create outbound registry
+    Given Put Outbound into  ${partner}
+    Then Put ds outbound registry into  ${partner}

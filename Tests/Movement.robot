@@ -27,3 +27,7 @@ Create and check history
     Given Put Movement into  ${partner}
     Then Movement Status History Is Correct in  ${partner}
 
+
+Create movement registry
+    Given Put Movement into  ${partner}
+    Then Put ds movement registry into  ${partner}
