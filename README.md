@@ -1,16 +1,17 @@
 **Необходимо**
-- Установленный `python v3.6`
-- Скачанный проект с тестами
-- Нужно открыть консоль в папке с проектом
+- Установить `python` не ниже версии 3.6.
+  Скачать последню версию `python` можно на [тут](https://www.python.org/downloads/)
+- Скачать проект с тестами
+- Открыть консоль в папке с тестами `yandex-market-partners-api-tests`
 
-**Виртуальное окружение**
+**Установка виртуального окружения**
 - `python3 -m venv venv`
 - `source venv/bin/activate`
 
-**Зависимости:**
+**Установка зависимостей:**
 - `python -m pip install -r requirements.txt`
 
-**Конфигурация:**  
+**Создание файла конфигурации:**  
 Пример конфигурации находится в `Configs/partner_config_example.yml`.
 Для работы тестов необходимо скопировать конфиг и заполнить необходимые urls:  
 `cp Configs/partner_config_example.yml Configs/{config name}.yml`
