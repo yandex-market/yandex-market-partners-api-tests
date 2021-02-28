@@ -90,6 +90,7 @@ Check inbound status in
     Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/inboundIds/inboundId/yandexId
     Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/inboundIds/inboundId/partnerId
 
+    ${request_id}                   Set request id to   ${xml_request}
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_inbound_status}
     Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_inbound_status_response.xsd
     Check errors not exist from     ${xml_response}
@@ -105,6 +106,7 @@ Get inbound status history in
     Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/inboundIds/inboundId/yandexId
     Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/inboundIds/inboundId/partnerId
 
+    ${request_id}                   Set request id to   ${xml_request}
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_inbound_status_history}
     Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_inbound_status_history_response.xsd
     Check errors not exist from     ${xml_response}

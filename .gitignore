@@ -1,5 +1,6 @@
 #IDE
 .idea
+.DS_Store
 
 #Python
 venv
@@ -12,3 +13,6 @@ report.html
 #Config
 Configs
 !Configs/partner_config_example.yml
+
+#History
+/*.xml

@@ -1,10 +1,12 @@
 *** Settings ***
-Documentation  Parnter method test example
+Documentation   Testing inbound methods
 
 Library     RequestsLibrary
 
 Resource    ../../Resources/Common/Inbound.robot
+Resource    ../../Resources/History.robot
 
+Test Setup     Clear History
 Test Teardown  Delete All Sessions
 
 
