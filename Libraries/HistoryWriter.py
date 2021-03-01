@@ -3,7 +3,7 @@ import os
 
 def write_request_to_file(filename: str, url: str, headers: dict, data: str):
     with open(f'{filename}.xml', 'a') as the_file:
-        the_file.write(f'Request to partner:\ncurl ')
+        the_file.write('curl ')
         for k in headers:
             the_file.write(f'-H \"{k}: {headers[k]}\" ')
 
@@ -17,7 +17,6 @@ def write_request_to_file(filename: str, url: str, headers: dict, data: str):
 def write_response_to_file(filename: str, data: str):
     with open(f'{filename}.xml', 'a') as the_file:
         the_file.write(f'''
-Response from partner:
 {data}
 
 ========================================================================================================================
