@@ -35,3 +35,53 @@
 3) [Создание файла конфигурации](https://yadi.sk/d/gBJjD0pUDEJ3yQ/Конфигурация.mov?w=1)
 4) [Запуск тестовых наборов/Успех](https://yadi.sk/d/gBJjD0pUDEJ3yQ/Успех.mov?w=1)
 5) [Запуск тестовых наборов/Ошибка](https://yadi.sk/d/gBJjD0pUDEJ3yQ/Неудача.mov?w=1)
+
+**История запросов**  
+История запросов пишется в отдельные файлы, названные именами запускаемых тест кейсов,
+например `Create inbound registry.xml`, в виде `curl` запросов и ответов: 
+```xml
+curl -H "Content-Type: text/xml" http://test_url/ -d '
+<root>
+    <token>test01</token>
+    <hash>b8e35cd2003c4ecf83f349ff3adc4d3b</hash>
+    <uniq>b8e35cd2003c4ecf83f349ff3adc4d3b</uniq>
+    <request type="getInboundStatusHistory">
+        <inboundIds>
+            <inboundId>
+                <yandexId>0778974</yandexId>
+                <partnerId>12345678</partnerId>
+            </inboundId>
+        </inboundIds>
+    </request>
+</root>
+'
+
+<?xml version="1.0" ?>
+<root>
+    <uniq>b8e35cd2003c4ecf83f349ff3adc4d3b</uniq>
+    <requestState>
+        <isError>false</isError>
+    </requestState>
+    <response type="getInboundStatusHistory">
+        <inboundStatusHistories>
+            <inboundStatusHistory>
+                <inboundId>
+                    <yandexId>0778974</yandexId>
+                    <partnerId>12345678</partnerId>
+                </inboundId>
+                <history>
+                    <status>
+                        <statusCode>0</statusCode>
+                        <setDate>2020-03-20T12:00:00+01:00</setDate>
+                    </status>
+                    <status>
+                        <statusCode>1</statusCode>
+                        <setDate>2020-03-20T14:00:00+01:00</setDate>
+                    </status>
+                </history>
+            </inboundStatusHistory>
+        </inboundStatusHistories>
+    </response>
+</root>
+```
+В каждый файл пишутся все запросы и ответы проделанные в соответсвующем тесте.

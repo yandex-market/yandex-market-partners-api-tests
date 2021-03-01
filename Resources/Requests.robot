@@ -3,6 +3,8 @@ Library     XML
 Library     RequestsLibrary
 Library     Request
 
+Resource    ../../Resources/History.robot
+
 *** Keywords ***
 Send xml request
     [Arguments]         ${xml_request}          ${url}
@@ -13,11 +15,13 @@ Send xml request
 
     ${request}          Element To String       ${xml_request}
     log                 ${request}              info
+    Write request       ${url}                  ${headers}          ${request}
 
     ${is_exist}         Session Exists          ${url}
     Run Keyword Unless  ${is_exist}             Create Session  ${url}  ${url}
     ${response}         Post On Session         ${url}  /  data=${request.encode('utf-8')}  headers=${headers}
     log                 ${response.text}        info
+    Write response      ${response.text}
 
     ${xml_response}     Parse xml               ${response.text}
 

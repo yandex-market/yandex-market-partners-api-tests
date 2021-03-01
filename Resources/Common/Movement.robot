@@ -90,6 +90,7 @@ Check movement status in
     Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/movementIds/movementId/yandexId
     Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/movementIds/movementId/partnerId
 
+    ${request_id}                   Set request id to   ${xml_request}
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_movement_status}
     Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_movement_status_response.xsd
     Check errors not exist from     ${xml_response}
@@ -105,6 +106,7 @@ Get movement status history in
     Set Element Text                ${xml_request}      ${YANDEX_ID}    xpath=request/movementIds/movementId/yandexId
     Set Element Text                ${xml_request}      ${PARTNER_ID}   xpath=request/movementIds/movementId/partnerId
 
+    ${request_id}                   Set request id to   ${xml_request}
     ${xml_response}                 Send xml request    ${xml_request}  ${partner.urls.get_movement_status_history}
     Validate response               ${xml_response}     Data/Schemas/Responses/Common/get_movement_status_history_response.xsd
     Check errors not exist from     ${xml_response}
