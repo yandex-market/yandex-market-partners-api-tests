@@ -6,5 +6,7 @@
             <partnerId>inbound_partner_id</partnerId>
         </inboundId>
     </response>
-    <requestState/>
+    <requestState>
+            <isError>false</isError>
+    </requestState>
 </root>
