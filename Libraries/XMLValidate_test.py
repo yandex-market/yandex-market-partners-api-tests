@@ -8,7 +8,8 @@ class DataTestCase(unittest.TestCase):
     def test_validate_request_state(self):
         xsd_path = "../Data/Schemas/Models/Common/request_state.xsd"
 
-        xml_validate("XMLValidateTestData/empty_is_error.xml", xsd_path)
+        with self.assertRaises(xmlschema.XMLSchemaChildrenValidationError):
+            xml_validate("XMLValidateTestData/empty_is_error.xml", xsd_path)
 
         xml_validate("XMLValidateTestData/only_is_error.xml", xsd_path)
 

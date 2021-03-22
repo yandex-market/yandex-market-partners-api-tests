@@ -4,7 +4,7 @@
     <xs:element name="requestState">
         <xs:complexType>
             <xs:all>
-                <xs:element name="isError" type="xs:boolean" minOccurs="0"/>
+                <xs:element name="isError" type="xs:boolean"/>
                 <xs:element name="errors" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
